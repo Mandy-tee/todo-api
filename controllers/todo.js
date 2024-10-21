@@ -17,18 +17,18 @@ export const addTodo = async (req, res, next) => {
         // Respond to request
         res.status(201).json("Todo was added!");
     } catch (error) {
-       next(error); 
+        next(error);
     }
 }
 
 export const getTodos = async (req, res, next) => {
     try {
-        const { filter = "{}", limit =10,skip =0  } = req.query;
+        const { filter = "{}", limit = 10, skip = 0 } = req.query;
         // Fetch todos from database
         const todos = await TodoModel
-        .find(JSON.parse(filter))
-        .limit(limit)
-        .skip(skip);
+            .find(JSON.parse(filter))
+            .limit(limit)
+            .skip(skip);
         // Return response
         res.status(200).json(todos);
     } catch (error) {

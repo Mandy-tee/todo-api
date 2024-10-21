@@ -9,10 +9,8 @@ const todoSchema = new Schema({
     timestamps: true
 });
 
-todoSchema.index({ name: "text", title: "text" });
+// todoSchema.index({ name: "text", title: "text" });
 
 todoSchema.plugin(toJSON);
 
 export const TodoModel = model("Todo", todoSchema);
-
-const filter = {"$text":{"$search":"${searchTerm"}};
